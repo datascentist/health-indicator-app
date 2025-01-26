@@ -1,0 +1,36 @@
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Disease Prediction Page</title>
+    <link rel="stylesheet" href="{% static 'css/heart.css' %}" />
+  </head>
+  <body>
+    <h2 style="color: white">{{disease}} Risk Result: {{result}}</h2>
+    {% if result == "Negative" %}
+      <p id="warns">You don't have {{disease}} Potential issues but you may consider 
+        the following recommendations for better life</p>
+    {% endif %}
+    {% if result == "Positive" %}
+      <p id="warns">You have {{disease}} Potential issues but you don't have to worry, take in consideration
+      the following recommendations, you will be okay.</p>
+    {% endif %}
+    <h3 id="recomm_title">Personal Recommendations</h3>
+    <div id="recomm">
+      {% if recommendations%} 
+        {% for recommendation, image_url in recommendations%}
+        <div id="hh" style="color: white">
+          <div id="text-recom">{{recommendation}}</div>
+          <br />
+          <div class="image-container">
+            <div class="image-item">
+              <img src="{{ image_url }}" width="300" />
+            </div>
+          </div>
+        </div>
+        {% endfor %} 
+      {% endif %}
+    </div>
+  </body>
+</html>

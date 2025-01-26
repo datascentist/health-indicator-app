@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto&display=swap');
+/* Reset some default styles */
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-family: Poppins !important;
+}
+:root {
+    ---a--color: black;
+    ---b--color: burlywood;
+    ---c--color: darkgoldenrod;
+    ---d--color: indigo;
+    ---e--color: yellowgreen;
+    ---f--color: rgb(226, 19, 19);
+}
+body {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    min-height: 80vh;
+}
+.content h2 {
+    font-size: 40px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: var(---f--color);
+}
+.content form {
+    width: 600px;
+    text-align: center;
+}
+.input-box .input-field {
+    width: 48.5%;
+}
+form .input-box {
+    display: flex;
+    justify-content: space-between;
+}
+.field .item {
+    width: 100%;
+    padding: 18px;
+    border: 1px solid var(---d--color);
+    border-radius: 5px;
+    outline:none;
+    font-size: 16px;
+    color: black;
+    margin: 12px 0;
+    background: var(---b--color);
+}
+form button {
+    padding: 10px 25px;
+    outline: none;
+    border: 1px solid var(---d--color);
+    background: var(---b--color);
+    color: var(---a--color);
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 0 0 15px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    font-weight: 400;
+    margin-top: 10px;
+    transition: all.5s ease-in-out;
+}
+form button:hover {
+    box-shadow: none;
+    transform: scale(1.1) translate(5px);
+    background: none;
+}
+.field .error-text {
+    font-size: 15.5px;
+    color: var(---f--color);
+    text-align: left;
+    margin: -5px 0 10px;
+    display: none;
+}
+form .textarea-field .error-text {
+    margin-top: -10px;
+}
+.field .item::placeholder {
+
+}

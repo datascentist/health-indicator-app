@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- google font link -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family
+    =Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,
+    -50..200&icon_names=chevron_left" />
+
+    <!-------------css link------------->
+    <link rel="stylesheet" href="{% static 'css/pro.css' %}">
+
+    <!-- remix icon link -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"rel="stylesheet"/>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo-content">
+            <div class="title">
+                <div class="title-name">
+                    Health App
+                </div>
+            </div>
+            <i class="ri-menu-line" id="btn"></i>
+        </div>
+
+        <ul class="nav-list">
+            <li>
+                <a href="">
+                    <i class="ri-home-line"></i>
+                    <span class="links-name">Home</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'heart' %}">
+                    <i class="ri-heart-fill"></i>
+                    <span class="links-name">Heart</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'diabete_prediction' %}">
+                    <i class="ri-dna-line"></i>
+                    <span class="links-name">Diabetes</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'contact' %}">
+                    <i class="ri-user-line"></i>
+                    <span class="links-name">Supports</span>
+                </a>
+            </li>
+
+            {% comment %} <li>
+                <a href="#">
+                    <i class="ri-contacts-book-line"></i>
+                    <span class="links-name">Activities</span>
+                </a>
+            </li> {% endcomment %}
+            
+        {% comment %} <ul class="logout-content">
+            <li>
+                <a href="#">
+                    <i class="ri-logout-box-line"></i>
+                    <span class="links-name">Logout</span>
+                </a>
+            </li>
+        </ul> {% endcomment %}
+    </div>
+
+    <section>
+        <div class="container">
+            <h2>Our Goal</h2>
+            {% for message in messages %}
+                <div id="message" class="message">{{message}}</div>
+            {% endfor %}
+            <div class="goal">
+                <div class="goal-text">
+                    
+                    <div class="child-goal">
+                        <h3>Consultant instruction</h3>
+                        <p>healthy ways to keep your blood sugar level normal and and avoid heart disease</p>
+                        <a href="https://sharingwisdoms.org/health-tips/?gad_source=1">
+                            learn more
+                        </a>
+                    </div>
+                    <div class="image">
+                        <img src="{% static 'images/doctor.avif' %}"/>
+                    </div>
+                </div>
+
+                <div class="goal-text">
+                    <div class="child-goal">
+                        <h3>Diet instruction</h3>
+                        <p>Maintain a balanced diet and follow our nutritionist instruction to balance your sugar level and heart problem</p>
+                        <a href="https://www.nhs.uk/live-well/eat-well/how-to-eat-a-balanced-diet/eight-tips-for-healthy-eating/">
+                            learn more
+                        </a>
+                    </div>
+                    <div class="image">
+                        <img src=" {% static 'images/diet.jpg' %} "/>
+                    </div>
+                </div>
+
+                <div class="goal-text">
+                    <div class="child-goal last">
+                        <h3>Sport</h3>
+                        <p>Trying regular physical excercises to keep your body fit and avoid obesity </p>
+                        <a href="https://madmuscles.com/step-goal?utm_source=google_search&utm_medium=140611269066&utm_campaign=18283276936&utm_content=620816749832&device=c&utm_term=fitness%20fit&camp_name=&asn=&utm_target=v(workouts)_tm1(workouts)_tm2()&gad_source=1&gclid=Cj0KCQiA19e8BhCVARIsALpFMgE1OiPqWOxm25EBqtP-xpLFSpxvZmNqtRkO8nUOnzr5lbznvM3m9Q8aApn6EALw_wcB">
+                            learn more
+                        </a>
+                    </div>
+                    <div class="image">
+                        <img src="{% static 'images/jogging.jpg' %}"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        let btn = document.querySelector("#btn");
+        let sidebar = document.querySelector(".sidebar");
+
+        btn.onclick = function(){
+            sidebar.classList.toggle("activate");
+        }
+    </script>
+    <script src="{% static 'js/home7.js' %}"></script>
+</body>
+</html>

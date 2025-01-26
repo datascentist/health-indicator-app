@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heart Disease Prediction</title>
+    <link
+      rel="icon"
+      href="{% static 'images/heart.png' %}"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="{% static 'css/heart0.css' %}" />
+  </head>
+  <body>
+    <div class="warning">
+      The following form takes your health related data and check if you have
+      heart issues, its not 100% accurate, if you have health potential issues
+      you're advised to visit your medical services center.
+    </div>
+    <div class="container">
+      <div>
+        {% if messages%} 
+          {% for message in messages%}
+            {% if message.tags == 'error' %}
+              <h4 class="message" id="{{message.tags}}">{{message}}</h4>
+            {% endif%}
+            {% endfor %} 
+        {% endif %}
+      </div>
+      <h1>Heart Disease Prediction</h1>
+      <form action="{% url 'predict_user_input' %}" method="POST">
+        {% csrf_token %}
+        <h2>Personal Information</h2>
+        <label for="RestingBP">Age:</label>
+        <input
+          type="number"
+          id="Age"
+          name="age"
+          placeholder="e.g., 56"
+          required
+        />
+        <small>Enter your Age </small>
+
+        <label for="RestingBP" id="gender">Gender:</label>
+        <span>
+          <label for="RestingBP"
+            >male<input type="radio" name="gender" value="1" 
+          /></label>
+          <label for="RestingBP" 
+            >female<input type="radio" name="gender" value="0"
+          /></label>
+        </span>
+        <small>Choose Your Gender </small>
+        <!-- Vital Signs -->
+        <h2>Vital Signs</h2>
+        <label for="RestingBP">Resting Blood Pressure (mm Hg):</label>
+        <input
+          type="number"
+          id="RestingBP"
+          name="resting_bp"
+          placeholder="e.g., 120"
+          required
+        />
+        <small
+          >Enter your resting blood pressure in mm Hg. Normal is typically below
+          120.</small
+        >
+        <label for="MaxHR">Maximum Heart Rate Achieved:</label>
+        <input
+          type="number"
+          id="MaxHR"
+          name="maximum_htr"
+          placeholder="e.g., 150"
+          required
+        />
+        <small
+          >Enter the maximum heart rate you achieved during exercise.</small
+        >
+        <!-- Medical History -->
+        <h2>Medical History</h2>
+        <label for="ChestPainType">Type of Chest Pain:</label>
+        <select id="ChestPainType" name="chest_pain" required>
+          <option value="3">Typical Angina</option>
+          <option value="1">Atypical Angina</option>
+          <option value="2">Non-Anginal Pain</option>
+          <option value="0">Asymptomatic</option>
+        </select>
+        <label for="FastingBS">Fasting Blood Sugar > 120 mg/dL:</label>
+        <select id="FastingBS" name="fasting_bs" required>
+          <option value="0">No</option>
+          <option value="1">Yes</option>
+        </select>
+        <small
+          >Select "Yes" if your fasting blood sugar is greater than 120
+          mg/dL.</small
+        >
+        <label for="ExerciseAngina">Exercise-Induced Angina:</label>
+        <select id="ExerciseAngina" name="exersise_ia" required>
+          <option value="0">No</option>
+          <option value="1">Yes</option>
+        </select>
+        <small
+          >Select "Yes" if you experience angina (chest pain) during
+          exercise.</small
+        >
+        <!-- Laboratory Results -->
+        <h2>Laboratory Results</h2>
+        <label for="Cholesterol">Cholesterol Level (mg/dL):</label>
+        <input
+          type="number"
+          id="Cholesterol"
+          name="cholesterol"
+          placeholder="e.g., 200"
+          required
+        />
+        <small
+          >Enter your cholesterol level in mg/dL. A normal reading is typically
+          below 200.</small
+        >
+        <!-- Diagnostic Tests -->
+        <h2>Diagnostic Tests</h2>
+        <label for="RestingECG">Resting Electrocardiographic Results:</label>
+        <select id="RestingECG" name="resting_elr" required>
+          <option value="1">Normal</option>
+          <option value="2">Having ST-T wave abnormality</option>
+          <option value="0">
+            Showing probable or definite left ventricular hypertrophy
+          </option>
+        </select>
+        <label for="Oldpeak"
+          >ST Depression Induced by Exercise Relative to Rest:</label
+        >
+        <input
+          type="number"
+          id="Oldpeak"
+          name="st_depression"
+          step="0.1"
+          placeholder="e.g., 1.5"
+          required
+        />
+        <small
+          >Enter the ST depression value. This measures the difference in the ST
+          segment during exercise and rest.</small
+        >
+        <label for="ST_Slope">The Slope of the Peak Exercise ST Segment:</label>
+        <select id="ST_Slope" name="slop_peak_exercise" required>
+          <option value="2">Upsloping</option>
+          <option value="1">Flat</option>
+          <option value="0">Downsloping</option>
+        </select>
+        <small>Select the shape of your ST segment during peak exercise.</small>
+        <button type="submit">Check</button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: rgb(2, 2, 49);
+    font-family: Poppins;
+    color: white;
+}
+
+#welcome{
+    display: flex;
+    justify-content: center;
+}
+#home{
+    text-align: center;
+}
+#app {
+    text-align: left !important;
+    margin: auto 20px !important;
+}
+
+#how-it-works{
+    text-align: center;
+    margin: 20px auto;
+}
+#descr{
+    text-align: left;
+    margin: 20px;
+}
+#how-it-works h3{
+    padding: 2rem;
+    margin: 0 auto;
+}
+.button-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+}
+.button-div .button{
+    background-color: blue;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    margin: 0 12px;
+    width: 110px;
+}
+.button-div .button:hover{
+    background: rgb(1, 1, 102);
+}
+#copy{
+    text-align: center;
+    margin: 10px;
+    font-size: 1.1rem;
+}
+@media (max-width: 768px){
+    body{
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 468px) {
+    body {
+        font-size: 17px;
+    }
+        .title{
+            width: 70%;
+            margin: 0 auto;
+            padding: 8px;
+        }
+        #p{
+            text-align: left;
+           
+        }
+        #how-it-works img {
+            width: 90%;
+        }
+}

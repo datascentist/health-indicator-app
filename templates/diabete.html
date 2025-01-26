@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diabetes Disease Prediction</title>
+    {% comment %} <link rel="stylesheet" href="{% static 'css/heart.css' %}"> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'css/diabetes.css' %}">
+    <link rel="stylesheet" href="{% static 'css/heart0.css' %}" />
+  
+    <link rel="icon"
+    href="{% static 'images/diabete.jpeg' %}"
+    type="image/x-icon"
+    />
+  </head>
+  <body>
+    <div class="warning">
+      The following form takes your health related data and check if you have
+      diabete issues, it's not 100% trusted, if you have health potential issues
+      you're advised to visit your medical services center.
+    </div>
+    <div class="container">
+      <div>
+        {% if messages %} 
+        {% for message in messages%} 
+            {% if message.tags == 'error' %}
+              <h4 class="message" id="{{message.tags}}">{{message}}</h4>
+              {% endif %} 
+          {% endfor %} 
+        {% endif %}
+      </div>
+      <h1>Diabete Disease Prediction</h1>
+      <form action="{% url 'diabete_prediction' %}" method="POST">
+        {% csrf_token %}
+        <h2>Personal Information</h2>
+        <label for="RestingBP">Age:</label>
+        <input
+          type="number"
+          id="Age"
+          name="age"
+          placeholder="e.g., 56"
+          required
+        />
+        <small>Enter your Age </small>
+
+        <!-- Vital Signs -->
+        <h2>Vital Signs</h2>
+        <label for="Pregnancies">Glucose:</label>
+        <input
+          type="number"
+          id="RestingBP"
+          name="glucose"
+          placeholder="e.g., 67"
+          required
+        />
+        <small
+          >Enter Blood sugar levels, normal is less than 100 in (mg)
+        </small>
+        <label for="MaxHR">Blood Pressure:</label>
+        <input
+          type="number"
+          id="MaxHR"
+          name="blood_pressure"
+          placeholder="e.g., 150"
+          required
+        />
+        <small
+          >Enter measurement of patient's blood pressure, normal is less than
+          120.</small
+        >
+        <label for="MaxHR">Skin Thickness:</label>
+        <input
+          type="number"
+          id="MaxHR"
+          name="skin_thickness"
+          placeholder="e.g., 30"
+          required
+        />
+        <small
+          >Enter patient's skin Thickness, High Levels May Indicate Higher Body
+          Fat Percentage.</small
+        >
+
+        <label for="MaxHR">Insulin:</label>
+        <input
+          type="number"
+          id="MaxHR"
+          name="insulin"
+          placeholder="e.g., 20"
+          required
+        />
+        <small
+          >Enter the level of insulin in patient's blood, higher indicates bad
+          sign, Higher insulin levels, also known as hyperinsulinemia.</small
+        >
+
+        <label for="MaxHR">BMI:</label>
+        <input
+          type="number"
+          id="MaxHR"
+          name="bmi"
+          step="0.1"
+          placeholder="e.g., 20.5"
+          required
+        />
+        <small
+          >Enter Body mass index, a measure of body fat based on height and
+          weight, 18.5 to 24.5 shows normal weight, less than 18.5 for
+          underweight and more than 25 shows overweight.</small
+        >
+        <!-- Medical History -->
+        <h2>Medical Results</h2>
+        <label for="Cholesterol">Pregnancies:</label>
+        <input
+          type="number"
+          id="Cholesterol"
+          name="pregnancies"
+          placeholder="e.g., 2"
+          required
+        />
+        <small
+          >Enter number of times patient have been pregnant, if she's a
+          female.</small
+        >
+
+        <label for="Cholesterol">Diabetes Pedigree Function:</label>
+        <input
+          type="number"
+          id="Cholesterol"
+          name="diabete_pf"
+          step="0.1"
+          placeholder="e.g., 1.5"
+          required
+        />
+        <small
+          >A score indicating the likelihood of diabetes based on family
+          history, value range between 0 and 2.</small
+        >
+
+        <button type="submit">Check</button>
+      </form>
+    </div>
+  </body>
+</html>

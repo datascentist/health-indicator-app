@@ -1,0 +1,53 @@
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}" />
+    <meta
+      name="description"
+      content="Heath Predictor Website, 
+    For analysing heath data taken from user to predict, if patient have heart or diabete diseas using 
+    advanced machine learning algoritms."
+    />
+    <meta name="keywords" content="MKD Heath Tool, IRAHARI Jean D Amour." />
+    <link
+      rel="icon"
+      href="{% static 'images/heart-diabete.jpeg' %}"
+      type="image/x-icon"
+    />
+    <title>MKD Health Tool Home Page</title>
+  </head>
+  <body>
+    <section id="home">
+      <div id="welcome">
+        <div class="title"><h2>Health Check Website</h2></div>
+      </div>
+      <div id="app" style="margin: 20px auto; font-size: 1.3rem">
+        <div id="p">
+          Welcome To Heath website, your tool which use Machine Learning
+          Advanced Algorithms, to catch insights from your heath data and
+          recommends you health style, and live your happiness life.
+        </div>
+      </div>
+    </section>
+    <section id="how-it-works">
+      <h3>How it works</h3>
+      <div id="descr">
+        To use this health tool, first you will choose heart disease or diabete
+        disease prediction, hit on heart or diabete button, then fill the out
+        the form and click check button and wait while app is predicting, after
+        it will show you the result (Positive or Negative) and life style
+        recommendations based on your heath data you have enterd through the
+        form.
+      </div>
+      <img src="{% static 'images/how_it_works.png' %}" />
+    </section>
+    <div class="button-div">
+      <button class="button" id="heart">Heart</button>
+      <button class="button" id="diabete">Diabetes</button>
+    </div>
+    <p id="copy">&copy; 2024 IRAHARI Jean D Amour. All rights reserved.</p>
+  </body>
+  <script src="{% static 'js/home.js' %}"></script>
+</html>

@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto&display=swap');
+/* Reset some default styles */
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+:root {
+    ---a--color: black;
+    ---b--color: burlywood;
+    ---c--color: darkgoldenrod;
+    ---d--color: indigo;
+    ---e--color: yellowgreen;
+    ---f--color: rgb(226, 19, 19);
+}
+body {
+    font-family: Poppins;
+    /* min-height: 100vh; */
+    background-image: url(image/R.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    overflow: hidden;
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 240px;
+    background: var(---b--color);
+    padding: 6px 15px;
+    transition: 0.5s ease;
+}
+.sidebar .logo-content .title {
+    color: var(---c--color);
+    font-size: 30px;
+    align-items: center;
+    display: flex;
+    width: 100%;
+    height: 50px;
+}
+.logo-content .title i {
+    font-size: 25px;
+    margin-right: 5px;
+}
+.sidebar #btn {
+    position: absolute;
+    color: var(---c--color);
+    left: 65%;
+    top: 8px;
+    height: 50px;
+    font-size: 20px;
+    width: 50px;
+    text-align: center;
+    line-height: 50px;
+    transform: translateX(50%);
+}
+.sidebar ul {
+    margin-top: 20px;
+}
+.sidebar ul li {
+    height: 50px;
+    width: 100%;
+    margin: 0 5px;
+    position: relative;
+    list-style: none;
+    line-height: 50px;
+}
+/* .sidebar ul li .tooltip {
+    position: absolute;
+    left: 122px;
+    top: 0;
+    transform: translateY(-50%);
+    height: 35px;
+    width: 122px;
+    line-height: 35px;
+    text-align: center;
+    box-shadow: 0 0 15px;
+    background: var(---b--color);
+    border-radius: 12px;
+    transition: 1s;
+    opacity: 0;
+    pointer-events: none;
+}
+.sidebar ul li:hover .tooltip {
+    top: 50%;
+    opacity: 1;
+    transition: all.5s ease;
+} */
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
+    color: var(---d--color);
+    text-decoration: none;
+    font-size: 20px;
+    transition: all.5s ease;
+    border-radius: 12px;
+}
+.sidebar ul li a:hover {
+    color: var(---a--color);
+    background: var(---e--color);
+}
+.sidebar ul li a i{
+    min-width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 12px;
+}
+.sidebar .logout-content {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    width: 90%;
+}
+section {
+    padding:0 25%;
+}
+.container {
+    position: relative;
+    /* display: block; */
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    /* top: 10px; */
+    height: 90%;
+    gap: 1.4em;
+}
+.container h2 {
+    font-size: 30px;
+    color: var(---e--color);
+    text-shadow: 0 0 20px;
+    line-height: 32px;
+}
+.goal {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.goal-text {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    background: var(---b--color);
+    border-radius: 20px;
+    padding: 10px 5px;
+}
+.child-goal a {
+    padding: 2px 8px !important;
+    margin-top: 20px !important;
+}
+.goal-text p{
+    padding: 0 5px;
+}
+
+.image img {
+    position: relative;
+    width: 170px;
+    height: 140px;
+    border-radius: 50%;
+}
+.child-goal {
+    display: block;
+    align-items: center;
+    text-align: left;
+    justify-content: space-between;
+    padding: 14px 30px;
+    line-height: 25px;
+}
+.child-goal h3 {
+    margin-top: 16px;
+    font-size: 22px;
+    font-weight: bold;
+}
+.child-goal p {
+    font-size: 18px;
+}
+.child-goal a {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 20px;
+    color: var(---d--color);
+    border: 1px solid;
+    padding: 5px 10px;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all.5s ease;
+}
+.child-goal a:hover {
+    border: none;
+    background: var(---e--color);
+}
+
+
+/* -------------animation----------- */
+@media (max-width: 768px) { 
+    .sidebar { 
+        width: 100%; 
+        height: auto; 
+        position: relative; 
+    }
+    .container { 
+        margin-left: 0; 
+    }
+    .goal { 
+        flex-direction: column; 
+    } 
+    .goal-text { 
+        margin: 10px 0; 
+    } 
+    .sidebar .logo-content { 
+        justify-content: center; 
+    } 
+    .sidebar .nav-list { 
+        display: flex; 
+        flex-direction: column; 
+    } 
+}
+.message{
+    display: none;
+}

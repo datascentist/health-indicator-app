@@ -172,7 +172,7 @@ def diabete_prediction(request):
                     prediction = "Positive"
                 else:
                     prediction = ""
-                disease = "Diabete"
+                disease = "Diabetes"
                 recommendations = personnal_recommendations(user_input, "diabete")
                 return render(
                     request,
